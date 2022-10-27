@@ -1,8 +1,4 @@
 # binar-ch6
-<div id="top">
-    <br />
-    <h1 align="center">Challenge Chapter 6</h1>
-</div>
 
 ### Built With
 
