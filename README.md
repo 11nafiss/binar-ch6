@@ -1,33 +1,38 @@
+# binar-ch6
 <div id="top">
     <br />
-    <h1 align="center">Car Management API</h1>
+    <h1 align="center">Challenge Chapter 6</h1>
 </div>
 
 ### Built With
 
 -   ExpressJS
 -   Sequelize
--   Postgres
+-   PostgresJS
 -   Swagger Open API
 
 ### Installation
 
 1. Clone the repo
     ```sh
-    git clone https://github.com/trisnawahyudiii/Car-Management-API.git
+    git clone https://github.com/11nafiss/binar-ch6.git
     ```
-2. Install packages
+2. In terminal go to ORM folder
+   ```sh
+    cd orm
+    ```
+3. Install packages
     ```sh
     yarn install
     ```
-3. Next Step
+4. Next Step
 
     ```sh
     - setting file database.js
     - yarn db:create; yarn db:migrate; yarn db:seed
     ```
 
-4. Run
+5. Run
 
     ```sh
     yarn develop
@@ -38,18 +43,17 @@
 -   Swagger Car Management API Documentation
 
 ```sh
-http://localhost:5000/
-http://localhost:5000/api-docs
+http://localhost:8001/
+http://localhost:8001/api-docs
 ```
 
 -   Super Admin Account
 
 ```sh
     {
-        email: wayantrisna79@gmail.com,
-        password: admin123,
+        email: admin@gmail.com,
+        password: 123,
     }
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-# binar-ch6
