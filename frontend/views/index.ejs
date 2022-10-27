@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Binar Cars | Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <!-- Boxiocns CDN Link -->
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="sidebar close">
+      <div class="menu-content">
+        <div class="leftbar">
+          <div class="logo-details">
+            <img src="img/logo2.png" class="logo" alt="" />
+          </div>
+          <ul class="col-links">
+            <li class="side-list">
+              <a href="#" class="side_logo">
+                <i class="bx bx-home-alt"></i>
+                <span class="bot_logo">Dashboard</span>
+              </a>
+            </li>
+            <li class="side-list">
+              <a href="#" class="side_logo visited">
+                <i class="bx bxs-truck"></i>
+                <span class="bot_logo">Cars</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="rightbar">
+          <div class="logo-details">
+            <img src="img/logo2-5.png" class="logo_name" alt="" />
+          </div>
+          <ul class="hide-links">
+            <li>
+              <span class="link_name">CARS</span>
+            </li>
+            <li class="visited">
+              <a href="/">
+                <span class="link_name">List Car</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <section class="home-section">
+      <div class="home-content">
+        <nav class="nav">
+          <div class="navbar">
+            <div class="leftnav">
+              <i class="bx bx-menu"></i>
+            </div>
+            <div class="rightnav">
+              <div class="nav-links">
+                <div class="sidebar-logo">
+                  <img src="img/logo2-5.png" alt="" />
+                  <i class="bx bx-x"></i>
+                </div>
+                <ul class="ul_links">
+                  <li>
+                    <div class="box_search">
+                      <i class="bx bx-search"></i>
+                      <input type="text" placeholder="Search" />
+                    </div>
+                    <button class="btn_search" type="submit">search</button>
+                  </li>
+                  <li>
+                    <img src="img/profile.png" alt="" />
+                    <a href="#"> Unis Badri </a>
+                    <i class="bx bxs-chevron-down htmlcss-arrow arrow"></i>
+                    <ul class="htmlCss-sub-menu sub-menu">
+                      <li><a href="#">Setting</a></li>
+                      <li><a href="#">Log Out</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <i class="bx bx-menu hide_menu"></i>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="top-home">
+        <div class="home-title">
+          <div class="list-page">
+            <a class="" href="#">Cars > </a>
+            <a class="this-page" href="#">List Car</a>
+          </div>
+          <div class="title-page">
+            <h1>List Car</h1>
+          </div>
+          <div class="category-car">
+            <ul class="size">
+              <li class="size-list">
+                <a href="/"><button class="size-button">All</button></a>
+              </li>
+              <form action="/filter" method="get">
+                <li class="size-list">
+                  <button type="submit" class="size-button" value="Small" name="filter">Small</button>
+                </li>
+                <li class="size-list">
+                  <button type="submit" class="size-button" value="Medium" name="filter">Medium</button>
+                </li>
+                <li class="size-list">
+                  <button type="submit" class="size-button" value="Large" name="filter">Large</button>
+                </li>
+              </form>
+            </ul>
+          </div>
+        </div>
+        <div class="add-new">
+          <a href="/add-cars">
+            <button class="btn-add">
+              <i class="bx bx-plus"></i>
+              Add New Car
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="bot-home">
+        <div class="card-cars">
+          <div class="card-item">
+            <ul>
+              <% data.forEach(element=> { %>
+              <li class="card-list">
+                <ul class="card">
+                  <li>
+                    <img src="<%= element.image %>" class="item1" alt="" width="270" height="160" />
+                  </li>
+                  <li><div class="item2"><%= element.name %> / <%= element.type %></div></li>
+                  <li><div class="item3"><%= Intl.NumberFormat("id-ID", {style: "currency",currency: "IDR"}).format(element.price) %> / hari</div></li>
+                  <li>
+                    <div class="item4">
+                      <i class="bx bx-time-five"></i>
+                      Updated At <%= new Date(element.updatedAt).toLocaleString() %>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="btn_card">
+                      <a href="/delete-cars/<%= element.id %>">
+                        <button type="submit" class="btn_red">
+                          <i class="bx bx-trash-alt"></i>
+                          Delete
+                        </button>
+                      </a>
+                      <a href="/update-cars/<%= element.id %>">
+                        <button type="submit" class="btn_green">
+                          <i class="bx bx-edit"></i>
+                          Update
+                        </button>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <% }) %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/script2.js"></script>
+  </body>
+</html>

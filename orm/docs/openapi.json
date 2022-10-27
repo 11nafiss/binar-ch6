@@ -1,0 +1,1239 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Binar Academy Cars API",
+    "description": "Fullstack Web Binar Academy --> Challenge-06 By Muhammad Nafis.",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "m.nafis.2001@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.11"
+  },
+  "externalDocs": {
+    "description": "Find out more about this repository",
+    "url": "https://github.com/11nafiss?tab=repositories"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8001/api/v1"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Cars",
+      "description": "Related about Cars"
+    },
+    {
+      "name": "Users",
+      "description": "Everything about User"
+    }
+  ],
+  "paths": {
+    "/cars": {
+      "get": {
+        "tags": [
+          "Cars"
+        ],
+        "summary": "To retrive the list of cars",
+        "description": "To retrive the list of cars",
+        "responses": {
+          "200": {
+            "description": "Cars successfully retrived",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "OK"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "cars": {
+                          "type": "array",
+                          "items": {
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "format": "int64",
+                                "example": 1
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Ford F150"
+                              },
+                              "type": {
+                                "type": "string",
+                                "example": "Sedan"
+                              },
+                              "price": {
+                                "type": "integer",
+                                "format": "int64",
+                                "example": 200000
+                              },
+                              "size": {
+                                "type": "string",
+                                "example": "Small"
+                              },
+                              "image": {
+                                "type": "string",
+                                "example": null
+                              },
+                              "createdBy": {
+                                "type": "string",
+                                "example": null
+                              },
+                              "updatedBy": {
+                                "type": "string",
+                                "example": null
+                              },
+                              "deletedBy": {
+                                "type": "string",
+                                "example": null
+                              },
+                              "createdAt": {
+                                "type": "string",
+                                "example": "2022-10-19T07:47:48.295Z"
+                              },
+                              "updatedAt": {
+                                "type": "string",
+                                "example": "2022-10-19T07:47:48.295Z"
+                              }
+                            }
+                          }
+                        },
+                        "count": {
+                          "type": "integer",
+                          "format": "int64",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Failed to retrive Cars",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Bad Request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Failed to get cars due to no cars on database",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "No car found on database"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Cars"
+        ],
+        "summary": "Add new car to the list",
+        "description": "Add new car to the list",
+        "requestBody": {
+          "description": "Update an existing car in the list",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": null
+                  },
+                  "type": {
+                    "type": "string",
+                    "example": null
+                  },
+                  "price": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": null
+                  },
+                  "size": {
+                    "type": "string",
+                    "example": null
+                  },
+                  "image": {
+                    "type": "string",
+                    "example": null
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Car added successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "OK"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "cars": {
+                          "type": "array",
+                          "items": {
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "format": "int64",
+                                "example": 1
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Ford F150"
+                              },
+                              "type": {
+                                "type": "string",
+                                "example": "Sedan"
+                              },
+                              "price": {
+                                "type": "integer",
+                                "format": "int64",
+                                "example": 200000
+                              },
+                              "size": {
+                                "type": "string",
+                                "example": "Small"
+                              },
+                              "image": {
+                                "type": "string",
+                                "example": null
+                              },
+                              "createdBy": {
+                                "type": "string",
+                                "example": null
+                              },
+                              "updatedBy": {
+                                "type": "string",
+                                "example": null
+                              },
+                              "deletedBy": {
+                                "type": "string",
+                                "example": null
+                              },
+                              "createdAt": {
+                                "type": "string",
+                                "example": "2022-10-19T07:47:48.295Z"
+                              },
+                              "updatedAt": {
+                                "type": "string",
+                                "example": "2022-10-19T07:47:48.295Z"
+                              }
+                            }
+                          }
+                        },
+                        "count": {
+                          "type": "integer",
+                          "format": "int64",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Failed to upload image",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Failed to insert image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Failed to add new Car",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Failed to add new data Car"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/car/update/{id}": {
+      "put": {
+        "tags": [
+          "Cars"
+        ],
+        "summary": "Update an existing car",
+        "description": "Update an existing car by Id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "description": "Update an existing car in the list",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": null
+                  },
+                  "type": {
+                    "type": "string",
+                    "example": null
+                  },
+                  "price": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": null
+                  },
+                  "size": {
+                    "type": "string",
+                    "example": null
+                  },
+                  "image": {
+                    "type": "string",
+                    "example": null
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Car updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "OK"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "cars": {
+                          "type": "array",
+                          "items": {
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "format": "int64",
+                                "example": 1
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Ford F150"
+                              },
+                              "type": {
+                                "type": "string",
+                                "example": "Sedan"
+                              },
+                              "price": {
+                                "type": "integer",
+                                "format": "int64",
+                                "example": 200000
+                              },
+                              "size": {
+                                "type": "string",
+                                "example": "Small"
+                              },
+                              "image": {
+                                "type": "string",
+                                "example": null
+                              },
+                              "createdBy": {
+                                "type": "string",
+                                "example": null
+                              },
+                              "updatedBy": {
+                                "type": "string",
+                                "example": null
+                              },
+                              "deletedBy": {
+                                "type": "string",
+                                "example": null
+                              },
+                              "createdAt": {
+                                "type": "string",
+                                "example": "2022-10-19T07:47:48.295Z"
+                              },
+                              "updatedAt": {
+                                "type": "string",
+                                "example": "2022-10-19T07:47:48.295Z"
+                              }
+                            }
+                          }
+                        },
+                        "count": {
+                          "type": "integer",
+                          "format": "int64",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Failed to upload image",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Failed to insert image"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Failed to update Car",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Failed to update a data Car"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/car/delete/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "schema": {
+            "type": "integer"
+          },
+          "required": true,
+          "description": "The car ID."
+        }
+      ],
+      "delete": {
+        "summary": "Delete car by ID",
+        "tags": [
+          "Cars"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully delete car data (soft delete)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "OK"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Car deleted successfully!"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Car not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Car not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "error.message"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/cars/restore/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "schema": {
+            "type": "integer"
+          },
+          "required": true,
+          "description": "The car ID."
+        }
+      ],
+      "put": {
+        "summary": "Restore car by ID",
+        "tags": [
+          "Cars"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully restore car data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "OK"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Car restored successfully!"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Car already Exist"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Car not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Car not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "error.message"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/whoAmI": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get a profile current user",
+        "description": "Get a profile current user",
+        "responses": {
+          "201": {
+            "description": "Your current profile user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "OK"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64",
+                          "example": 1
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "admin@gmail.com"
+                        },
+                        "encryptedPassword": {
+                          "type": "string",
+                          "example": null
+                        },
+                        "role": {
+                          "type": "string",
+                          "example": "superAdmin"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "example": "2022-10-22T14:42:44.178Z"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "example": "2022-10-22T14:42:44.178Z"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Failed"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "Login Users (Member, Admin, Super Admin)",
+        "description": "Login for Users",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/JSON": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "admin@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login user successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "OK"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64",
+                          "example": 1
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "admin@gmail.com"
+                        },
+                        "encryptedPassword": {
+                          "type": "string",
+                          "example": null
+                        },
+                        "role": {
+                          "type": "string",
+                          "example": "superAdmin"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "example": "2022-10-22T14:42:44.178Z"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "example": "2022-10-22T14:42:44.178Z"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "User login fail",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Password is incorrect!"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User login fail",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Email is not registered!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/register": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Register new member user",
+        "description": "Register new member user",
+        "requestBody": {
+          "description": "Register new member user",
+          "required": true,
+          "content": {
+            "application/JSON": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "admin@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Register member user successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "OK"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64",
+                          "example": 1
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "admin@gmail.com"
+                        },
+                        "encryptedPassword": {
+                          "type": "string",
+                          "example": null
+                        },
+                        "role": {
+                          "type": "string",
+                          "example": "superAdmin"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "example": "2022-10-22T14:42:44.178Z"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "example": "2022-10-22T14:42:44.178Z"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Failed to register member User",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Failed to register member User"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "failed to create member",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Email already registered!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/registerAdmin": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Register new admin user",
+        "description": "Register new admin user",
+        "requestBody": {
+          "description": "Register new admin user",
+          "required": true,
+          "content": {
+            "application/JSON": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "admin@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Register admin user successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "OK"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64",
+                          "example": 1
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "admin@gmail.com"
+                        },
+                        "encryptedPassword": {
+                          "type": "string",
+                          "example": null
+                        },
+                        "role": {
+                          "type": "string",
+                          "example": "superAdmin"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "example": "2022-10-22T14:42:44.178Z"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "example": "2022-10-22T14:42:44.178Z"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Failed to register admin User",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Failed to register admin User"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "failed to create member",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "FAIL"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Email already registered!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

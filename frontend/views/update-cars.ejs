@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Binar Cars | Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <!-- Boxiocns CDN Link -->
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="sidebar close">
+      <div class="menu-content">
+        <div class="leftbar">
+          <div class="logo-details">
+            <img src="/img/logo2.png" class="logo" alt="" />
+          </div>
+          <ul class="col-links">
+            <li class="side-list">
+              <a href="#" class="side_logo">
+                <i class="bx bx-home-alt"></i>
+                <span class="bot_logo">Dashboard</span>
+              </a>
+            </li>
+            <li class="side-list">
+              <a href="#" class="side_logo visited">
+                <i class="bx bxs-truck"></i>
+                <span class="bot_logo">Cars</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="rightbar">
+          <div class="logo-details">
+            <img src="/img/logo2-5.png" class="logo_name" alt="" />
+          </div>
+          <ul class="hide-links">
+            <li>
+              <span class="link_name">CARS</span>
+            </li>
+            <li class="visited">
+              <a href="/">
+                <span class="link_name">List Car</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <section class="home-section">
+      <div class="home-content">
+        <nav class="nav">
+          <div class="navbar">
+            <div class="leftnav">
+              <i class="bx bx-menu"></i>
+            </div>
+            <div class="rightnav">
+              <div class="nav-links">
+                <div class="sidebar-logo">
+                  <img src="/img/logo2-5.png" alt="" />
+                  <i class="bx bx-x"></i>
+                </div>
+                <ul class="ul_links">
+                  <li>
+                    <div class="box_search">
+                      <i class="bx bx-search"></i>
+                      <input type="text" placeholder="Search" />
+                    </div>
+                    <button class="btn_search" type="submit">search</button>
+                  </li>
+                  <li>
+                    <img src="/img/profile.png" alt="" />
+                    <a href="#"> Unis Badri </a>
+                    <i class="bx bxs-chevron-down htmlcss-arrow arrow"></i>
+                    <ul class="htmlCss-sub-menu sub-menu">
+                      <li><a href="#">Setting</a></li>
+                      <li><a href="#">Log Out</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <i class="bx bx-menu hide_menu"></i>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="top-home">
+        <div class="home-title">
+          <div class="list-page">
+            <a class="" href="#">Cars > </a>
+            <a class="" href="/">List Car > </a>
+            <a class="this-page" href="#">Update Car</a>
+          </div>
+          <div class="title-page">
+            <h1>Update Car Information</h1>
+          </div>
+        </div>
+      </div>
+      <div class="bot-home">
+        <div>
+          <form action="/update-cars/<%= data.id %>" method="post" enctype="multipart/form-data">
+            <ul class="card-form">
+              <li class="list">
+                <label for="name">Nama</label>
+                <input class="input-list" type="text" name="name" id="name" value="<%= data.name %>" placeholder="Avanza" required />
+              </li>
+              <li class="list">
+                <label for="type">Tipe</label>
+                <input class="input-list" type="text" name="type" id="type" value="<%= data.type %>" placeholder="sedan" required />
+              </li>
+              <li class="list">
+                <label for="price">Sewa Per Hari</label>
+                <input class="input-list" type="number" name="price" id="price" value="<%= data.price %>" placeholder="Rp 0,-" required />
+              </li>
+              <li class="list">
+                <label for="size">Ukuran</label>
+                <div class="select-menu" id="list">
+                  <input type="text" name="size" id="size" hidden>
+                  <div class="select-btn">
+                    <span class="sBtn_text">Pilih</span>
+                    <i class="bx bx-chevron-down"></i>
+                  </div>
+                  <ul class="options">
+                    <li class="option">
+                      <span class="option_text">Small</span>
+                    </li>
+                    <li class="option">
+                      <span class="option_text">Medium</span>
+                    </li>
+                    <li class="option">
+                      <span class="option_text">Large</span>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="list">
+                <label>Foto</label>
+                <div class="custom-file">
+                  <span class="uploadLabel"></span>
+                  <!-- <input type="text" class="filename" placeholder="https://placeimg.com/640/480/any"/> -->
+                  <div class="input-file">
+                    <label class="uploadbtn" for="image" type="button"><i class="bx bx-upload"></i></label>
+                    <input type="file" class="fileupload" name="image" id="image" hidden/>
+                  </div>
+                </div>
+              </li>
+              <div class="ket">
+                <span>File size max. 2MB</span>
+              </div>
+            </ul>
+            <div class="btn_submit">
+              <a href="/"><button type="button">Cancel</button></a>
+              <a href="/add-cars"><button type="submit">Save</button></a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>
