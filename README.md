@@ -1,4 +1,4 @@
-# binar-ch6
+# Challenge Chapter 6
 
 ### Built With
 
